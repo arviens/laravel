@@ -1,0 +1,19 @@
+web:
+  image: nginx:latest
+  ports: ["80:80"]
+  links: ["php"]
+  volumes: ["./:/var/www","./scripts/docker/nginx.conf:/etc/nginx/conf.d/default.conf"]
+
+
+php:
+  image: datadoglt/php71
+  volumes: ["./:/var/www"]
+  links: ["mysql"]
+  ports: ["9000"]
+
+mysql:
+  image: mysql
+  ports: ["3306:3306"]
+  environment:
+      MYSQL_ROOT_PASSWORD: passw0rd
+      MYSQL_DATABASE: database
