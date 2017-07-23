@@ -19,7 +19,7 @@ class LoginService
 
     public function loginUser(User $user)
     {
-        $this->auth->guard()->login($user);
+        $this->auth->guard()->login($user, true);
     }
 
     public function validate(array $credentials)

@@ -41,6 +41,8 @@ class HomeController extends Controller
         if ($loginStatus) {
             $currentUser = $this->userRepository->getByUsername($request->get('username'));
             $this->loginService->loginUser($currentUser);
+        } else {
+            return redirect()->route('home');
         }
 
         return redirect()->route('dashboard:index');

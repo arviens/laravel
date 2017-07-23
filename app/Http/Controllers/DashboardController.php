@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\UserRepository;
-use App\Services\Account\LoginService;
-use Illuminate\Http\Request;
+use Auth;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        return view('dashboard.index');
     }
 }

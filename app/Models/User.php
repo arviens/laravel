@@ -23,6 +23,10 @@ class User extends Authenticatable
         'username', 'password',
     ];
 
+    protected $attributes = [
+        'role' => self::ROLE_USER,
+    ];
+
     protected $hidden = [
         'internal_name', 'password', 'remember_token',
     ];

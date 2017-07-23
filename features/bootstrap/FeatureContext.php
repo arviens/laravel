@@ -8,6 +8,8 @@ use Behat\MinkExtension\Context\MinkContext;
  */
 class FeatureContext extends MinkContext implements Context
 {
+    use UserTrait, HtmlPageTrait;
+
     /**
      * Initializes context.
      *
@@ -17,14 +19,26 @@ class FeatureContext extends MinkContext implements Context
      */
     public function __construct()
     {
+    }
+
+    /**
+     * @BeforeSuite
+     */
+    public static function initialize()
+    {
         Artisan::call('migrate');
     }
 
     /**
-     * @Before
+     * @BeforeScenario
      */
-    public static function initialize()
+    public static function beforeScenario()
     {
+//        DB::beginTransaction();
+    }
 
+    public static function afterScenario()
+    {
+//        DB::rollBack();
     }
 }

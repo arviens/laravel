@@ -1,7 +1,14 @@
 Feature:
-  In order to prove that Behat works as intended
-  We want to test the home page for a phrase
+  Authentication testing
 
-  Scenario: Root Test
-    When I am on the homepage
-    Then I should see "Test"
+  Background:
+    Given user "test" exists
+
+  Scenario: Loggin in with existing user
+    Given I login as "test"
+    Then page should contain "You are logged in!"
+
+  Scenario: Loggin in with not existing user
+    Given I login as "notexistinguser"
+    Then page should not contain "You are logged in!"
+
