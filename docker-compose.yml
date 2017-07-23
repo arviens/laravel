@@ -4,7 +4,6 @@ web:
   links: ["php"]
   volumes: ["./:/var/www","./scripts/docker/nginx.conf:/etc/nginx/conf.d/default.conf"]
 
-
 php:
   image: datadoglt/php71
   volumes: ["./:/var/www"]

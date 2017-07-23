@@ -12,5 +12,4 @@ abstract class BaseRepository
     {
         return $this->query()->find($id);
     }
-
 }
