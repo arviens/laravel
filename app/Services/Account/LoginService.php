@@ -26,4 +26,9 @@ class LoginService
     {
         return $this->auth->guard()->validate($credentials);
     }
+
+    public function logout()
+    {
+        $this->auth->guard()->logout();
+    }
 }

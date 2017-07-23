@@ -1,7 +1,7 @@
 default:
     extensions:
         Laracasts\Behat:
-            env_path: .env
+            env_path: .env.test
         Behat\MinkExtension:
             default_session: laravel
             base_url: http://localhost:8888

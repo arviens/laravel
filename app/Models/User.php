@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
@@ -13,6 +14,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  */
 class User extends Authenticatable
 {
+    use SoftDeletes;
+
     const ROLE_USER = 'user';
     const ROLE_ADMIN = 'admin';
 
@@ -20,16 +23,16 @@ class User extends Authenticatable
         'username', 'password',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'internal_name', 'password', 'remember_token',
     ];
 
     public function isAdmin(): bool
+    {
+        return $this->role === self::ROLE_ADMIN;
+    }
+
+    public function isUser(): bool
     {
         return $this->role === self::ROLE_ADMIN;
     }

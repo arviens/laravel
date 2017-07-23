@@ -17,5 +17,14 @@ class FeatureContext extends MinkContext implements Context
      */
     public function __construct()
     {
+        Artisan::call('migrate');
+    }
+
+    /**
+     * @Before
+     */
+    public static function initialize()
+    {
+
     }
 }

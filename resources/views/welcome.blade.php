@@ -9,7 +9,7 @@
 </head>
 <body class="login">
 <div class="container">
-    <div class="hidden">
+    <div>
         Test
         <form action="{{ route('auth:login') }}" method="POST">
             {{ csrf_field() }}
