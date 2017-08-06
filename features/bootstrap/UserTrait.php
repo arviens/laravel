@@ -16,6 +16,8 @@ trait UserTrait
                 'username' => $username,
                 'password' => bcrypt($password),
             ]);
+
+            $user->saveOrFail();
         }
 
         return $user;
