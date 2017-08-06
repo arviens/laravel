@@ -29,6 +29,9 @@ class FeatureContext extends MinkContext implements Context
         DB::beginTransaction();
     }
 
+    /**
+     * @AfterScenario
+     */
     public static function afterScenario()
     {
         DB::rollBack();
