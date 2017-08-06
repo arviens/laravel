@@ -35,6 +35,7 @@ before_install:
   - mv .env.test.example .env.test
   - docker exec -ti -u www laravel_php_1 mkdir vendor
   - docker exec -ti -u www laravel_php_1 composer install
+  - docker exec -ti -u www laravel_php_1 php artisan migrate:install --env=test
   - docker exec -ti -u root laravel_mysql_1 mysql -uroot -ppassw0rd -e "create database project_test"
   - docker exec -ti -u root laravel_mysql_1 mysql -uroot -ppassw0rd -e "create database project"
   - yarn

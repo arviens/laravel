@@ -22,23 +22,15 @@ class FeatureContext extends MinkContext implements Context
     }
 
     /**
-     * @BeforeSuite
-     */
-    public static function initialize()
-    {
-        Artisan::call('migrate');
-    }
-
-    /**
      * @BeforeScenario
      */
     public static function beforeScenario()
     {
-//        DB::beginTransaction();
+        DB::beginTransaction();
     }
 
     public static function afterScenario()
     {
-//        DB::rollBack();
+        DB::rollBack();
     }
 }
