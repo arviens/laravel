@@ -6,16 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name') }}</title>
     <link href="{{ asset('css/deps.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="login">
 <div class="container">
-    <div>
-        Test
-        <form action="{{ route('auth:login') }}" method="POST">
+    <h3 class="text-center">Please login</h3>
+    <div class="col-md-12">
+        <form class="form-horizontal" action="{{ route('auth:login') }}" method="POST">
             {{ csrf_field() }}
-            <input type="text" name="username" placeholder="Username">
-            <input type="password" name="password" placeholder="Password">
-            <input type="submit" name="login" class="btn btn-success" value="Login">
+            <div class="form-group">
+                <label for="name" class="cols-sm-2 control-label">Username</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" name="username" placeholder="Enter your username">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name" class="cols-sm-2 control-label">Password</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                        <input type="password" class="form-control" name="password" placeholder="Enter your password">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group ">
+                <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Login</button>
+            </div>
         </form>
     </div>
 </div>

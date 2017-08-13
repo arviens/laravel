@@ -76,5 +76,5 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('build', ['copy', 'concat', 'shell:webpack_build', 'sass']);
-    grunt.registerTask('init', ['concurrent:watcher']);
+    grunt.registerTask('default', ['concurrent:watcher']);
 };

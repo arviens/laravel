@@ -16,7 +16,7 @@ class VisitorTrack
                 'ip' => $request->ip(),
                 'user_agent' => $request->header('User-Agent')
             ]);
-            $visitorTrack->save();
+            $visitorTrack->saveOrFail();
             Cookie::queue(self::COOKIE_NAME, '1', 60);
         }
 
